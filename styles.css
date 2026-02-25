@@ -1,0 +1,212 @@
+/* static/css/styles.css */
+:root{
+  --bg:#f2f4f7;
+  --surface:#ffffff;
+  --surface-alt:#ffffff;
+  --muted:#6b7280;
+  --text:#0f1724;
+  --chip-bg:#ffffff;
+  --chip-border:#e6e9ee;
+}
+
+/* DARK THEME */
+.dark {
+  --bg:#0f0f0f;
+  --surface:#181818;
+  --surface-alt:#202020;
+  --text:#ffffff;
+  --muted:#aaaaaa;
+  --chip-bg:#202020;
+  --chip-border:#333333;
+}
+
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+
+.app{display:flex;min-height:100vh}
+
+/* Sidebar */
+.sidebar{
+  width:240px;background:var(--surface);padding:18px;border-right:1px solid #eaeef3;
+  display:flex;flex-direction:column;gap:14px;position:sticky;top:0;height:100vh
+}
+.brand{display:flex;align-items:center;gap:10px;padding-bottom:6px}
+.logo{width:36px;height:36px;border-radius:8px;background:#f52121;color:white;display:flex;align-items:center;justify-content:center;font-weight:700}
+.brand-text{font-weight:700}
+.nav{display:flex;flex-direction:column;gap:6px}
+.nav-item{padding:10px;border-radius:8px;color:#374151;cursor:pointer;text-decoration:none}
+.nav-item.active{background:#f3f6ff;color:#0f1724}
+
+/* subscriptions list */
+.subs h4{margin:10px 0 6px;font-size:13px}
+.subs ul{margin:0;padding-left:18px}
+.subs li{display:flex;align-items:center;gap:8px;margin:6px 0;color:#0f1724;cursor:pointer;padding:4px;border-radius:6px;transition:background .1s}
+.subs li:hover{background:#f8fafc}
+.sub-icon{width:24px;height:24px;border-radius:50%;background:#e9eef6;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#374151;flex-shrink:0}
+
+/* main area */
+.main{flex:1;padding:18px;overflow:auto}
+
+/* topbar */
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.left-area{display:flex;align-items:center;gap:12px}
+.menu-btn{display:inline-flex;align-items:center;justify-content:center;border-radius:8px;border:none;padding:8px;background:white;box-shadow:0 1px 2px rgba(2,6,23,0.06);cursor:pointer}
+.search-wrap{display:flex;align-items:center;background:white;padding:6px;border-radius:12px;box-shadow:0 1px 2px rgba(16,24,40,0.04)}
+.search-wrap input{border:none;outline:none;padding:10px 12px;width:520px;font-size:14px;border-radius:8px}
+.search-wrap button{border:none;background:transparent;padding:8px;cursor:pointer}
+
+.right-area{display:flex;align-items:center;gap:10px}
+.icon-btn{background:white;border:none;padding:8px;border-radius:10px;cursor:pointer;box-shadow:0 1px 2px rgba(16,24,40,0.04)}
+.avatar{width:40px;height:40px;border-radius:50%;background:#0f1724;color:white;display:flex;align-items:center;justify-content:center;font-weight:700}
+
+/* chips */
+.chips{display:flex;gap:10px;overflow:auto;padding:10px 0;margin-bottom:12px}
+.chip{background:var(--chip-bg);border:1px solid var(--chip-border);padding:8px 14px;border-radius:999px;cursor:pointer;font-size:14px;white-space:nowrap;box-shadow:0 1px 0 rgba(16,24,40,0.02)}
+.chip.active{background:#eef2ff;border-color:#cfe0ff}
+
+/* grid */
+.grid{display:grid;grid-template-columns: repeat(auto-fill, minmax(300px,1fr));gap:20px 22px;padding-bottom:60px}
+
+/* card */
+.card{background:var(--surface);border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(2,6,23,0.04);transition:transform .12s ease, box-shadow .12s ease}
+.card:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(2,6,23,0.08)}
+.thumb-wrap{position:relative;height:0;padding-bottom:56.25%;overflow:hidden;background:#e9eef6}
+.thumb{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block}
+.duration{position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,0.78);color:white;padding:4px 7px;border-radius:6px;font-size:12px;box-shadow:0 1px 4px rgba(0,0,0,0.3)}
+
+.card-body{display:flex;gap:12px;padding:14px}
+.avatar-small{width:40px;height:40px;border-radius:50%;background:#e9eef6;display:flex;align-items:center;justify-content:center;color:#374151;font-weight:700;flex:0 0 40px}
+.meta{flex:1}
+.title{font-weight:600;margin-bottom:6px;line-height:1.2;font-size:15px;color:#0f1724}
+.channel{color:var(--muted);font-size:13px}
+.meta-line{color:var(--muted);font-size:12px;margin-top:8px}
+
+/* responsive */
+@media (max-width:1100px){
+  .search-wrap input{width:320px}
+  .grid{grid-template-columns: repeat(auto-fill, minmax(260px,1fr))}
+}
+@media (max-width:820px){
+  .sidebar{display:none}
+  .search-wrap input{width:160px}
+  .grid{grid-template-columns: repeat(auto-fill, minmax(220px,1fr))}
+}
+.video-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* === FIXED THUMBNAIL SIZING === */
+
+/* Keep the 16:9 aspect ratio */
+.thumb-wrap {
+  position: relative;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 exact ratio */
+  overflow: hidden;
+  background: #e9eef6;
+}
+
+/* Make the thumbnail fit perfectly */
+.thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* ensures perfect cropping & no distortion */
+  border-radius: 0;    /* matches YouTube */
+}
+
+/* === DARK MODE FIXES === */
+body.dark {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.sidebar,
+.card,
+.search-wrap,
+.icon-btn,
+.menu-btn {
+  background: var(--surface) !important;
+}
+
+.card-body,
+.topbar,
+.chip {
+  background: var(--surface-alt) !important;
+}
+
+/* === DARK MODE FIXES 2: MAIN AREA === */
+body.dark .main {
+  background: var(--bg);
+}
+
+body.dark .grid {
+  background: var(--bg);
+}
+
+body.dark .card {
+  background: var(--surface);
+  box-shadow: 0 2px 10px rgba(255,255,255,0.05);
+}
+
+body.dark .card-body {
+  background: var(--surface-alt) !important;
+}
+
+body.dark .thumb-wrap {
+  background: #111;
+}
+
+body.dark .channel,
+body.dark .meta-line {
+  color: var(--muted);
+}
+
+/* === DARK MODE TEXT FIXES === */
+
+body.dark,
+body.dark .title,
+body.dark .channel,
+body.dark .meta-line,
+body.dark .nav-item,
+body.dark .subs li,
+body.dark .avatar-small,
+body.dark .brand-text,
+body.dark .nav-item.active,
+body.dark .chip,
+body.dark .avatar {
+  color: var(--text) !important;
+}
+
+/* Muted secondary text */
+body.dark .channel,
+body.dark .meta-line {
+  color: var(--muted) !important;
+}
+
+/* Fix nav in dark mode */
+body.dark .nav-item {
+  background: transparent !important;
+}
+
+body.dark .nav-item.active {
+  background: #272727 !important;
+}
+
+/* Fix subscription hover color */
+body.dark .subs li:hover {
+  background: #222 !important;
+}
+
+/* Online Subscription Icons */
+.sub-icon-img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}

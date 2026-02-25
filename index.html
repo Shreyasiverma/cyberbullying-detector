@@ -1,0 +1,62 @@
+<!-- templates/index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>YouTube Replica</title>
+  <link rel="stylesheet" href="/static/css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">▶</div>
+        <div class="brand-text">YouTube</div>
+      </div>
+
+      <nav class="nav">
+        <a class="nav-item active">Home</a>
+        <a class="nav-item">Explore</a>
+        <a class="nav-item">Subscriptions</a>
+        <hr/>
+        <a class="nav-item">Library</a>
+        <a class="nav-item">History</a>
+      </nav>
+
+      <div class="subs">
+        <h4>Subscriptions</h4>
+        <ul id="subs-list"></ul>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="left-area">
+          <button class="menu-btn" id="menuBtn">☰</button>
+          <div class="search-wrap">
+            <input id="search-input" placeholder="Search" />
+            <button id="search-btn" aria-label="Search">🔍</button>
+          </div>
+        </div>
+
+        <div class="right-area">
+          <button class="icon-btn">📹</button>
+          <button class="icon-btn">🔔</button>
+           <button id="theme-toggle" class="icon-btn">🌓</button>
+          <div class="avatar">S</div>
+        </div>
+      </header>
+
+      <section class="chips" id="chips"></section>
+
+      <!-- ⭐ JS will inject videos here -->
+      <section class="grid" id="video-grid"></section>
+
+    </main>
+  </div>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
